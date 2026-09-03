@@ -1,0 +1,89 @@
+:root {
+  --bg-black: #000000;
+  --bg-sidebar: #09080d;
+  --bg-card: #121018;
+  --bg-card-hover: #1b1824;
+  --purple-accent: #8c32ff;
+  --text-primary: #ffffff;
+  --text-muted: #797488;
+}
+
+body {
+  background-color: var(--bg-black);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.85rem;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #252131;
+  border-radius: 0 !important;
+}
+
+.search-input {
+  background-color: #121018 !important;
+  border: 1px solid #1e1b29 !important;
+  color: #fff !important;
+  font-size: 0.85rem;
+  border-radius: 0 !important; 
+}
+
+.bg-pulse-sidebar {
+  background-color: var(--bg-sidebar);
+}
+
+.nav-link-pulse {
+  color: var(--text-muted);
+  border-radius: 0 !important;
+  padding: 8px 12px;
+  font-weight: 500;
+}
+.nav-link-pulse:hover, .nav-link-pulse.active {
+  color: #fff;
+  background-color: var(--purple-accent);
+}
+
+.song-card {
+  background-color: var(--bg-card);
+  border-radius: 0 !important;
+  padding: 10px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+.song-card:hover {
+  background-color: var(--bg-card-hover);
+}
+
+.play-btn-overlay {
+  position: absolute;
+  bottom: 45px;
+  right: 15px;
+  width: 28px;
+  height: 28px;
+  background-color: var(--purple-accent);
+  border-radius: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 12px rgba(140, 50, 255, 0.4);
+}
+
+.form-range::-webkit-slider-thumb {
+  background-color: var(--purple-accent);
+  width: 10px;
+  height: 10px;
+  border-radius: 0 !important;
+}
+.form-range::-webkit-slider-runnable-track {
+  background-color: #262235;
+  height: 4px;
+  border-radius: 0 !important;
+}
