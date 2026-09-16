@@ -1,0 +1,141 @@
+<aside class="w-100 h-100 bg-pulse-sidebar p-3 d-flex flex-column justify-content-between overflow-y-auto custom-scroll" id="player-aside">
+  
+  <!-- Encabezado del reproductor -->
+  <header class="d-flex justify-content-between align-items-center mb-3">
+    <span class="text-white fw-semibold small">Reproduciendo</span>
+    <button class="btn btn-link text-muted-pulse p-0 text-decoration-none" title="Opciones">
+      <i class="bi bi-three-dots fs-5"></i>
+    </button>
+  </header>
+
+  <!-- Portada de la canción actual -->
+  <figure class="mb-3 text-center">
+    <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80" 
+         alt="Carátula Night Drive" 
+         class="img-fluid rounded-3 player-cover shadow-lg w-100"
+         id="current-cover">
+  </figure>
+
+  <!-- Información de pista y botón Me Gusta -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div class="text-truncate pe-2">
+      <h6 class="text-white fw-bold mb-0 text-truncate" id="current-title">Night Drive</h6>
+      <span class="text-muted-pulse small text-truncate d-block" id="current-artist">The Midnight</span>
+    </div>
+    <button class="btn btn-link p-0 text-decoration-none" id="btn-favorite" title="Guardar en favoritos">
+      <i class="bi bi-heart-fill text-pulse-accent fs-5"></i>
+    </button>
+  </div>
+
+  <!-- Barra de progreso y tiempos -->
+  <div class="mb-2">
+    <input type="range" class="form-range player-range w-100" id="playback-bar" min="0" max="258" value="94">
+    <div class="d-flex justify-content-between text-muted-pulse extra-small mt-1">
+      <span id="time-current">1:34</span>
+      <span id="time-total">4:18</span>
+    </div>
+  </div>
+
+  <!-- Controles principales de audio -->
+  <div class="d-flex justify-content-between align-items-center px-2 mb-3">
+    <button class="btn btn-link text-muted-pulse p-0" title="Aleatorio" id="btn-shuffle">
+      <i class="bi bi-shuffle fs-6"></i>
+    </button>
+    <button class="btn btn-link text-white p-0" title="Anterior" id="btn-prev">
+      <i class="bi bi-skip-start-fill fs-4"></i>
+    </button>
+    <button class="btn btn-pulse-play rounded-circle d-flex align-items-center justify-content-center" title="Reproducir/Pausar" id="btn-play-main">
+      <i class="bi bi-pause-fill fs-4 text-white"></i>
+    </button>
+    <button class="btn btn-link text-white p-0" title="Siguiente" id="btn-next">
+      <i class="bi bi-skip-end-fill fs-4"></i>
+    </button>
+    <button class="btn btn-link text-muted-pulse p-0" title="Repetir" id="btn-repeat">
+      <i class="bi bi-repeat fs-6"></i>
+    </button>
+  </div>
+
+  <!-- Nivel de volumen y dispositivos -->
+  <div class="d-flex align-items-center justify-content-between gap-2 px-1 mb-4">
+    <button class="btn btn-link text-muted-pulse p-0" title="Dispositivos">
+      <i class="bi bi-pip fs-6"></i>
+    </button>
+    <div class="d-flex align-items-center gap-2 flex-grow-1 mx-2">
+      <i class="bi bi-volume-up-fill text-muted-pulse small" id="volume-icon"></i>
+      <input type="range" class="form-range player-range" id="volume-bar" min="0" max="100" value="70">
+    </div>
+    <button class="btn btn-link text-muted-pulse p-0" title="Pantalla completa">
+      <i class="bi bi-arrows-angle-expand extra-small"></i>
+    </button>
+  </div>
+
+  <!-- Cola de reproducción ("En la fila") -->
+  <section class="queue-section border-top border-dark-subtle pt-3 flex-grow-1">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <span class="text-white fw-semibold small">En la fila</span>
+      <a href="#" class="text-muted-pulse text-decoration-none extra-small hover-white">Ver todo</a>
+    </div>
+
+    <div class="d-flex flex-column gap-2 mb-2">
+      <article class="d-flex align-items-center justify-content-between py-1 px-2 rounded queue-item">
+        <div class="d-flex align-items-center gap-2 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=100&q=80" class="rounded queue-thumb" alt="Afterglow">
+          <div class="text-truncate">
+            <span class="text-white small fw-semibold d-block text-truncate">Afterglow</span>
+            <span class="text-muted-pulse extra-small d-block text-truncate">The Weeknd</span>
+          </div>
+        </div>
+        <span class="text-muted-pulse extra-small ms-2">3:42</span>
+      </article>
+
+      <article class="d-flex align-items-center justify-content-between py-1 px-2 rounded queue-item">
+        <div class="d-flex align-items-center gap-2 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=100&q=80" class="rounded queue-thumb" alt="Sweater Weather">
+          <div class="text-truncate">
+            <span class="text-white small fw-semibold d-block text-truncate">Sweater Weather</span>
+            <span class="text-muted-pulse extra-small d-block text-truncate">The Neighbourhood</span>
+          </div>
+        </div>
+        <span class="text-muted-pulse extra-small ms-2">4:00</span>
+      </article>
+
+      <article class="d-flex align-items-center justify-content-between py-1 px-2 rounded queue-item">
+        <div class="d-flex align-items-center gap-2 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=100&q=80" class="rounded queue-thumb" alt="The Less I Know The Better">
+          <div class="text-truncate">
+            <span class="text-white small fw-semibold d-block text-truncate">The Less I Know The Better</span>
+            <span class="text-muted-pulse extra-small d-block text-truncate">Tame Impala</span>
+          </div>
+        </div>
+        <span class="text-muted-pulse extra-small ms-2">3:36</span>
+      </article>
+
+      <article class="d-flex align-items-center justify-content-between py-1 px-2 rounded queue-item">
+        <div class="d-flex align-items-center gap-2 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=100&q=80" class="rounded queue-thumb" alt="Heat Waves">
+          <div class="text-truncate">
+            <span class="text-white small fw-semibold d-block text-truncate">Heat Waves</span>
+            <span class="text-muted-pulse extra-small d-block text-truncate">Glass Animals</span>
+          </div>
+        </div>
+        <span class="text-muted-pulse extra-small ms-2">3:59</span>
+      </article>
+
+      <article class="d-flex align-items-center justify-content-between py-1 px-2 rounded queue-item">
+        <div class="d-flex align-items-center gap-2 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1520523839898-50712825e617?auto=format&fit=crop&w=100&q=80" class="rounded queue-thumb" alt="Espresso">
+          <div class="text-truncate">
+            <span class="text-white small fw-semibold d-block text-truncate">Espresso</span>
+            <span class="text-muted-pulse extra-small d-block text-truncate">Sabrina Carpenter</span>
+          </div>
+        </div>
+        <span class="text-muted-pulse extra-small ms-2">2:55</span>
+      </article>
+    </div>
+
+    <div class="text-center mt-2 mb-1">
+      <a href="#" class="text-muted-pulse text-decoration-none extra-small hover-white">Ver cola completa</a>
+    </div>
+  </section>
+
+</aside>
