@@ -1,23 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pulse - Módulo Reproductor</title>
+  <title>Pulse - Plataforma de Música</title>
   <!-- Bootstrap 5 CSS y Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <!-- Hoja de estilos externa propia -->
-  <link rel="stylesheet" href="./assets/styles/player.css">
+
+  <!-- Hojas de estilos -->
+  <link rel="stylesheet" href="./assets/styles/styles.css">
+  <link rel="stylesheet" href="./styles/player.css">
 </head>
-<body class="vh-100 bg-black p-0 overflow-hidden d-flex justify-content-end">
 
-  <!-- Contenedor que simula la columna derecha del layout grupal -->
-  <div id="player-test-container" class="h-100 border-start border-dark-subtle" style="width: 330px; max-width: 100%;"></div>
+<body class="vh-100 bg-black p-0 overflow-hidden d-flex">
 
-  <!-- Bootstrap 5 JS -->
+  <!-- Contenido Principal Central -->
+  <main class="flex-grow-1 h-100 p-4 overflow-y-auto custom-scroll">
+    <header class="mb-4">
+      <h4 class="text-white fw-bold">Playlists destacadas</h4>
+    </header>
+
+    <!-- Grid de Tarjetas -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+      <div class="col">
+        <div class="song-card p-2 rounded-3 h-100 cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?auto=format&fit=crop&w=400&q=80"
+            class="img-fluid rounded-3 mb-2 w-100 object-fit-cover" style="height: 130px;" alt="Rock clásico">
+          <h6 class="text-white fw-bold mb-0 text-truncate">Rock clásico</h6>
+          <span class="text-muted-pulse extra-small">85 canciones</span>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="song-card p-2 rounded-3 h-100 cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80"
+            class="img-fluid rounded-3 mb-2 w-100 object-fit-cover" style="height: 130px;" alt="Chill Vibes">
+          <h6 class="text-white fw-bold mb-0 text-truncate">Chill Vibes</h6>
+          <span class="text-muted-pulse extra-small">42 canciones</span>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="song-card p-2 rounded-3 h-100 cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=400&q=80"
+            class="img-fluid rounded-3 mb-2 w-100 object-fit-cover" style="height: 130px;" alt="Electro Night">
+          <h6 class="text-white fw-bold mb-0 text-truncate">Electro Night</h6>
+          <span class="text-muted-pulse extra-small">60 canciones</span>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="song-card p-2 rounded-3 h-100 cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=400&q=80"
+            class="img-fluid rounded-3 mb-2 w-100 object-fit-cover" style="height: 130px;" alt="Pop Hits">
+          <h6 class="text-white fw-bold mb-0 text-truncate">Pop Hits</h6>
+          <span class="text-muted-pulse extra-small">110 canciones</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Reproductor Derecho -->
+  <div id="player-test-container" class="h-100 border-start border-dark-subtle" style="width: 330px; flex-shrink: 0;">
+  </div>
+
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Lógica modular de interactividad -->
+  <script src="./scripts/script.js"></script>
   <script src="./scripts/player.js"></script>
 </body>
+
 </html>

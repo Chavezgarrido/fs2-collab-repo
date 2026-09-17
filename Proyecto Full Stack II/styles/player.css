@@ -3,7 +3,8 @@
   --bg-sidebar: #09080d;
   --bg-card: #121018;
   --bg-card-hover: #1b1824;
-  --purple-accent: #8c32ff;
+  --purple-accent: #b26bff;
+  /* Cambiado de #8c32ff */
   --text-primary: #ffffff;
   --text-muted: #797488;
 }
@@ -39,9 +40,11 @@ body {
 .custom-scroll::-webkit-scrollbar {
   width: 4px;
 }
+
 .custom-scroll::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .custom-scroll::-webkit-scrollbar-thumb {
   background: #252131;
 }
@@ -70,7 +73,8 @@ body {
 
 .btn-pulse-play:hover {
   transform: scale(1.08);
-  background-color: #9d4eff;
+  background-color: #c488ff;
+  /* Hover adaptado al tono más claro */
 }
 
 /* Sliders de progreso y volumen */

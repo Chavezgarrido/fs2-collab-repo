@@ -3,7 +3,8 @@
   --bg-sidebar: #09080d;
   --bg-card: #121018;
   --bg-card-hover: #1b1824;
-  --purple-accent: #8c32ff;
+  --purple-accent: #b26bff;
+  /* Cambiado de #8c32ff */
   --text-primary: #ffffff;
   --text-muted: #797488;
 }
@@ -18,9 +19,11 @@ body {
 ::-webkit-scrollbar {
   width: 4px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #252131;
   border-radius: 0 !important;
@@ -31,7 +34,7 @@ body {
   border: 1px solid #1e1b29 !important;
   color: #fff !important;
   font-size: 0.85rem;
-  border-radius: 0 !important; 
+  border-radius: 0 !important;
 }
 
 .bg-pulse-sidebar {
@@ -44,7 +47,9 @@ body {
   padding: 8px 12px;
   font-weight: 500;
 }
-.nav-link-pulse:hover, .nav-link-pulse.active {
+
+.nav-link-pulse:hover,
+.nav-link-pulse.active {
   color: #fff;
   background-color: var(--purple-accent);
 }
@@ -57,6 +62,7 @@ body {
   cursor: pointer;
   position: relative;
 }
+
 .song-card:hover {
   background-color: var(--bg-card-hover);
 }
@@ -73,7 +79,8 @@ body {
   align-items: center;
   justify-content: center;
   color: white;
-  box-shadow: 0 4px 12px rgba(140, 50, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(178, 107, 255, 0.4);
+  /* Sombra ajustada a #b26bff */
 }
 
 .form-range::-webkit-slider-thumb {
@@ -82,8 +89,13 @@ body {
   height: 10px;
   border-radius: 0 !important;
 }
+
 .form-range::-webkit-slider-runnable-track {
   background-color: #262235;
   height: 4px;
   border-radius: 0 !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
