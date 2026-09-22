@@ -4,72 +4,132 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pulse - Plataforma de Música</title>
-  <!-- Bootstrap 5 CSS y Bootstrap Icons -->
+  <title>Pulse - Tu Plataforma de Música</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-  <!-- Hojas de estilos -->
   <link rel="stylesheet" href="./assets/styles/styles.css">
-  <link rel="stylesheet" href="./styles/player.css">
+  <link rel="stylesheet" href="./assets/styles/player.css">
 </head>
 
 <body class="vh-100 bg-black p-0 overflow-hidden d-flex">
-
-  <!-- Contenido Principal Central -->
-  <main class="flex-grow-1 h-100 p-4 overflow-y-auto custom-scroll">
-    <header class="mb-4">
-      <h4 class="text-white fw-bold">Playlists destacadas</h4>
+  <div id="aside-container" class="h-100" style="width: 250px; flex-shrink: 0;"></div>
+  <main class="flex-grow-1 h-100 p-4 overflow-y-auto">
+    <header class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+      <div class="input-group" style="max-width: 460px; flex-grow: 1;">
+        <span class="input-group-text search-input border-end-0 text-muted-pulse rounded-0">
+          <i class="bi bi-search"></i>
+        </span>
+        <input type="text" id="main-search-input" class="form-control search-input border-start-0 rounded-0"
+          placeholder="Buscar canciones o artistas...">
+      </div>
+      <div id="user-welcome-container" class="d-flex align-items-center gap-2">
+      </div>
     </header>
-
-    <!-- Grid de Tarjetas -->
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
-      <div class="col">
-        <div class="song-card p-2 rounded-3 h-100 cursor-pointer">
-          <img src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?auto=format&fit=crop&w=400&q=80"
-            class="img-fluid rounded-3 mb-2 w-100 object-fit-cover" style="height: 130px;" alt="Rock clásico">
-          <h6 class="text-white fw-bold mb-0 text-truncate">Rock clásico</h6>
-          <span class="text-muted-pulse extra-small">85 canciones</span>
+    <section class="p-4 mb-4 rounded-0 position-relative overflow-hidden"
+      style="background: linear-gradient(135deg, #1d122e 0%, #0c0816 100%); border: 1px solid #231c36;">
+      <span class="text-uppercase fw-bold extra-small text-muted-pulse mb-1 d-block" style="letter-spacing: 1px;">Álbum
+        Recomendado</span>
+      <h2 class="text-white fw-bold display-6 mb-1">Pop Rock Essentials</h2>
+      <p class="text-white-50 mb-3" style="max-width: 540px;">Riffs electrizantes, ganchos pop inolvidables y las bandas
+        que llenaron estadios.</p>
+      <div class="d-flex align-items-center gap-3">
+        <button id="btn-hero-play" class="btn text-white fw-bold px-4 py-2 rounded-0 d-flex align-items-center gap-2"
+          style="background-color: var(--purple-accent);">
+          <i class="bi bi-play-fill fs-5"></i> Reproducir Selección
+        </button>
+      </div>
+    </section>
+    <section class="mb-4">
+      <div class="row row-cols-1 row-cols-md-3 g-2">
+        <div class="col">
+          <div class="quick-card d-flex align-items-center p-2 rounded-0 cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?auto=format&fit=crop&w=120&q=80"
+              class="me-3 object-fit-cover" width="48" height="48" alt="Classic Rock">
+            <span class="text-white fw-semibold text-truncate">Classic Rock</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="quick-card d-flex align-items-center p-2 rounded-0 cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=120&q=80"
+              class="me-3 object-fit-cover" width="48" height="48" alt="Pop Hits">
+            <span class="text-white fw-semibold text-truncate">Pop Hits</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="quick-card d-flex align-items-center p-2 rounded-0 cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=120&q=80"
+              class="me-3 object-fit-cover" width="48" height="48" alt="Pop Rock">
+            <span class="text-white fw-semibold text-truncate">Pop Rock</span>
+          </div>
         </div>
       </div>
-
-      <div class="col">
-        <div class="song-card p-2 rounded-3 h-100 cursor-pointer">
-          <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80"
-            class="img-fluid rounded-3 mb-2 w-100 object-fit-cover" style="height: 130px;" alt="Chill Vibes">
-          <h6 class="text-white fw-bold mb-0 text-truncate">Chill Vibes</h6>
-          <span class="text-muted-pulse extra-small">42 canciones</span>
+    </section>
+    <section class="mb-5">
+      <header class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="text-white fw-bold mb-0">Tus géneros favoritos</h5>
+      </header>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+        <div class="col">
+          <div class="song-card h-100" data-genre="Classic Rock">
+            <img src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?auto=format&fit=crop&w=400&q=80"
+              class="img-fluid mb-2 w-100 object-fit-cover" style="height: 130px;" alt="Rock Clásico">
+            <span class="play-btn-overlay"><i class="bi bi-play-fill fs-5"></i></span>
+            <h6 class="text-white fw-bold mb-0 text-truncate">Rock Clásico</h6>
+            <span class="text-muted-pulse extra-small">Queen, AC/DC & más</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="song-card h-100" data-genre="Pop Hits">
+            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=400&q=80"
+              class="img-fluid mb-2 w-100 object-fit-cover" style="height: 130px;" alt="Pop Hits">
+            <span class="play-btn-overlay"><i class="bi bi-play-fill fs-5"></i></span>
+            <h6 class="text-white fw-bold mb-0 text-truncate">Pop Hits</h6>
+            <span class="text-muted-pulse extra-small">Los temas más sonados</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="song-card h-100" data-genre="Pop Rock">
+            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80"
+              class="img-fluid mb-2 w-100 object-fit-cover" style="height: 130px;" alt="Pop Rock">
+            <span class="play-btn-overlay"><i class="bi bi-play-fill fs-5"></i></span>
+            <h6 class="text-white fw-bold mb-0 text-truncate">Pop Rock Anthems</h6>
+            <span class="text-muted-pulse extra-small">Guitarras & melodías</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="song-card h-100" data-genre="80s Smash Hits">
+            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=400&q=80"
+              class="img-fluid mb-2 w-100 object-fit-cover" style="height: 130px;" alt="80s Hits">
+            <span class="play-btn-overlay"><i class="bi bi-play-fill fs-5"></i></span>
+            <h6 class="text-white fw-bold mb-0 text-truncate">80s Smash Hits</h6>
+            <span class="text-muted-pulse extra-small">Sintetizadores y energía</span>
+          </div>
         </div>
       </div>
-
-      <div class="col">
-        <div class="song-card p-2 rounded-3 h-100 cursor-pointer">
-          <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=400&q=80"
-            class="img-fluid rounded-3 mb-2 w-100 object-fit-cover" style="height: 130px;" alt="Electro Night">
-          <h6 class="text-white fw-bold mb-0 text-truncate">Electro Night</h6>
-          <span class="text-muted-pulse extra-small">60 canciones</span>
-        </div>
+    </section>
+    <section class="mb-4">
+      <header class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="text-white fw-bold mb-0">Pistas disponibles</h5>
+      </header>
+      <div class="table-responsive">
+        <table class="table table-dark table-borderless align-middle mb-0" style="background-color: transparent;">
+          <thead>
+            <tr class="text-muted-pulse extra-small border-bottom border-dark-subtle">
+              <th scope="col" style="width: 40px;">#</th>
+              <th scope="col">TÍTULO</th>
+              <th scope="col">ÁLBUM</th>
+              <th scope="col" class="text-end" style="width: 80px;"><i class="bi bi-clock"></i></th>
+            </tr>
+          </thead>
+          <tbody id="tracks-table-body"></tbody>
+        </table>
       </div>
-
-      <div class="col">
-        <div class="song-card p-2 rounded-3 h-100 cursor-pointer">
-          <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=400&q=80"
-            class="img-fluid rounded-3 mb-2 w-100 object-fit-cover" style="height: 130px;" alt="Pop Hits">
-          <h6 class="text-white fw-bold mb-0 text-truncate">Pop Hits</h6>
-          <span class="text-muted-pulse extra-small">110 canciones</span>
-        </div>
-      </div>
-    </div>
+    </section>
   </main>
-
-  <!-- Reproductor Derecho -->
-  <div id="player-test-container" class="h-100 border-start border-dark-subtle" style="width: 330px; flex-shrink: 0;">
-  </div>
-
-  <!-- Scripts -->
+  <div id="player-test-container" class="h-100" style="width: 320px; flex-shrink: 0;"></div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="./scripts/script.js"></script>
   <script src="./scripts/player.js"></script>
+  <script src="./scripts/script.js"></script>
 </body>
 
 </html>

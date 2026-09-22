@@ -1,141 +1,95 @@
-<aside class="w-100 h-100 bg-pulse-sidebar p-3 d-flex flex-column justify-content-between overflow-y-auto custom-scroll" id="player-aside">
-  
-  <!-- Encabezado del reproductor -->
-  <header class="d-flex justify-content-between align-items-center mb-3">
-    <span class="text-white fw-semibold small">Reproduciendo</span>
-    <button class="btn btn-link text-muted-pulse p-0 text-decoration-none" title="Opciones">
-      <i class="bi bi-three-dots fs-5"></i>
-    </button>
-  </header>
-
-  <!-- Portada de la canción actual -->
-  <figure class="mb-3 text-center">
-    <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80" 
-         alt="Carátula Night Drive" 
-         class="img-fluid rounded-3 player-cover shadow-lg w-100"
-         id="current-cover">
-  </figure>
-
-  <!-- Información de pista y botón Me Gusta -->
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <div class="text-truncate pe-2">
-      <h6 class="text-white fw-bold mb-0 text-truncate" id="current-title">Night Drive</h6>
-      <span class="text-muted-pulse small text-truncate d-block" id="current-artist">The Midnight</span>
+<aside id="player-aside" class="pulse-player-container">
+  <div class="pulse-mini-player cursor-pointer" id="mobile-expand-trigger">
+    <div class="pulse-mini-left" id="mini-track-info-area">
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='%23231c36'><rect width='24' height='24' fill='%230e0b16'/><circle cx='12' cy='12' r='8' fill='%231a1528'/><circle cx='12' cy='12' r='3' fill='%230e0b16'/></svg>" id="mini-cover" alt="Sin reproducir">
+      <div class="pulse-mini-info">
+        <span class="pulse-mini-title" id="mini-title">No se está reproduciendo nada</span>
+        <span class="pulse-mini-artist" id="mini-artist">Elige una pista para comenzar</span>
+      </div>
     </div>
-    <button class="btn btn-link p-0 text-decoration-none" id="btn-favorite" title="Guardar en favoritos">
-      <i class="bi bi-heart-fill text-pulse-accent fs-5"></i>
-    </button>
-  </div>
+    
+    <div class="pulse-mini-controls">
+      <button class="pulse-btn-icon" id="btn-mini-favorite" type="button" aria-label="Favorito">
+        <i class="bi bi-heart"></i>
+      </button>
+      <button class="pulse-btn-icon" id="btn-mini-play" type="button" aria-label="Reproducir">
+        <i class="bi bi-play-fill"></i>
+      </button>
+    </div>
 
-  <!-- Barra de progreso y tiempos -->
-  <div class="mb-2">
-    <input type="range" class="form-range player-range w-100" id="playback-bar" min="0" max="258" value="94">
-    <div class="d-flex justify-content-between text-muted-pulse extra-small mt-1">
-      <span id="time-current">1:34</span>
-      <span id="time-total">4:18</span>
+    <div class="pulse-mini-progress-bar">
+      <div class="pulse-mini-progress-fill" id="mini-progress-fill" style="width: 0%;"></div>
     </div>
   </div>
 
-  <!-- Controles principales de audio -->
-  <div class="d-flex justify-content-between align-items-center px-2 mb-3">
-    <button class="btn btn-link text-muted-pulse p-0" title="Aleatorio" id="btn-shuffle">
-      <i class="bi bi-shuffle fs-6"></i>
-    </button>
-    <button class="btn btn-link text-white p-0" title="Anterior" id="btn-prev">
-      <i class="bi bi-skip-start-fill fs-4"></i>
-    </button>
-    <button class="btn btn-pulse-play rounded-circle d-flex align-items-center justify-content-center" title="Reproducir/Pausar" id="btn-play-main">
-      <i class="bi bi-pause-fill fs-4 text-white"></i>
-    </button>
-    <button class="btn btn-link text-white p-0" title="Siguiente" id="btn-next">
-      <i class="bi bi-skip-end-fill fs-4"></i>
-    </button>
-    <button class="btn btn-link text-muted-pulse p-0" title="Repetir" id="btn-repeat">
-      <i class="bi bi-repeat fs-6"></i>
-    </button>
+  <div class="pulse-full-player position-relative" id="sp-full-player" style="padding-bottom: 70px;">
+    
+    <div class="pulse-full-header">
+      <button class="pulse-btn-icon" id="btn-close-fullscreen" type="button" aria-label="Minimizar">
+        <i class="bi bi-chevron-down fs-4"></i>
+      </button>
+      <div class="text-center text-truncate px-2">
+        <span class="pulse-tag">REPRODUCIENDO EN PULSE</span>
+        <span class="pulse-subtag d-block text-truncate" id="full-header-title">En espera</span>
+      </div>
+      <button class="pulse-btn-icon" type="button">
+        <i class="bi bi-three-dots-vertical fs-5"></i>
+      </button>
+    </div>
+
+    <div class="pulse-full-cover-wrapper">
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 24 24' fill='%23231c36'><rect width='24' height='24' fill='%230e0b16'/><circle cx='12' cy='12' r='9' fill='%231a1528'/><circle cx='12' cy='12' r='3' fill='%230e0b16'/><circle cx='12' cy='12' r='1' fill='%23b26bff'/></svg>" id="current-cover" alt="Sin reproducir">
+    </div>
+
+    <div class="pulse-full-info-row">
+      <div class="pulse-full-meta text-truncate">
+        <h4 class="pulse-full-title text-truncate mb-0" id="current-title">No hay música en reproducción</h4>
+        <span class="pulse-full-artist text-truncate" id="current-artist">Elige una canción para comenzar</span>
+      </div>
+      <button class="pulse-btn-icon" id="btn-favorite" type="button" aria-label="Favorito">
+        <i class="bi bi-heart fs-4"></i>
+      </button>
+    </div>
+
+    <div class="pulse-full-timeline">
+      <input type="range" class="form-range player-range w-100" id="playback-bar" min="0" max="100" value="0">
+      <div class="d-flex justify-content-between text-muted-pulse extra-small mt-1">
+        <span id="time-current">0:00</span>
+        <span id="time-total">0:00</span>
+      </div>
+    </div>
+
+    <div class="pulse-full-controls">
+      <button class="pulse-btn-icon" id="btn-shuffle" type="button" aria-label="Aleatorio">
+        <i class="bi bi-shuffle fs-5"></i>
+      </button>
+      <button class="pulse-btn-icon" id="btn-prev" type="button" aria-label="Anterior">
+        <i class="bi bi-skip-start-fill fs-2"></i>
+      </button>
+      <button class="pulse-btn-play-big" id="btn-play-main" type="button" aria-label="Play / Pausa">
+        <i class="bi bi-play-fill text-black"></i>
+      </button>
+      <button class="pulse-btn-icon" id="btn-next" type="button" aria-label="Siguiente">
+        <i class="bi bi-skip-end-fill fs-2"></i>
+      </button>
+      <button class="pulse-btn-icon" id="btn-repeat" type="button" aria-label="Repetir">
+        <i class="bi bi-repeat fs-5"></i>
+      </button>
+    </div>
+
+    <div class="pulse-full-volume-row">
+      <button class="pulse-btn-icon" id="btn-volume-toggle" type="button" aria-label="Silenciar">
+        <i class="bi bi-volume-up-fill" id="volume-icon"></i>
+      </button>
+      <input type="range" class="form-range player-range flex-grow-1" id="volume-bar" min="0" max="100" value="70">
+    </div>
+
+    <section class="queue-section border-top border-dark-subtle pt-3 mt-3 d-none d-lg-block">
+      <span class="text-white fw-semibold extra-small d-block mb-2" style="letter-spacing: 0.5px;">SIGUIENTE EN COLA</span>
+      <div class="d-flex flex-column gap-1" id="queue-list-container">
+        <p class="text-muted-pulse extra-small py-2 text-center">Fila vacía</p>
+      </div>
+    </section>
+
   </div>
-
-  <!-- Nivel de volumen y dispositivos -->
-  <div class="d-flex align-items-center justify-content-between gap-2 px-1 mb-4">
-    <button class="btn btn-link text-muted-pulse p-0" title="Dispositivos">
-      <i class="bi bi-pip fs-6"></i>
-    </button>
-    <div class="d-flex align-items-center gap-2 flex-grow-1 mx-2">
-      <i class="bi bi-volume-up-fill text-muted-pulse small" id="volume-icon"></i>
-      <input type="range" class="form-range player-range" id="volume-bar" min="0" max="100" value="70">
-    </div>
-    <button class="btn btn-link text-muted-pulse p-0" title="Pantalla completa">
-      <i class="bi bi-arrows-angle-expand extra-small"></i>
-    </button>
-  </div>
-
-  <!-- Cola de reproducción ("En la fila") -->
-  <section class="queue-section border-top border-dark-subtle pt-3 flex-grow-1">
-    <div class="d-flex justify-content-between align-items-center mb-2">
-      <span class="text-white fw-semibold small">En la fila</span>
-      <a href="#" class="text-muted-pulse text-decoration-none extra-small hover-white">Ver todo</a>
-    </div>
-
-    <div class="d-flex flex-column gap-2 mb-2">
-      <article class="d-flex align-items-center justify-content-between py-1 px-2 rounded queue-item">
-        <div class="d-flex align-items-center gap-2 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=100&q=80" class="rounded queue-thumb" alt="Afterglow">
-          <div class="text-truncate">
-            <span class="text-white small fw-semibold d-block text-truncate">Afterglow</span>
-            <span class="text-muted-pulse extra-small d-block text-truncate">The Weeknd</span>
-          </div>
-        </div>
-        <span class="text-muted-pulse extra-small ms-2">3:42</span>
-      </article>
-
-      <article class="d-flex align-items-center justify-content-between py-1 px-2 rounded queue-item">
-        <div class="d-flex align-items-center gap-2 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=100&q=80" class="rounded queue-thumb" alt="Sweater Weather">
-          <div class="text-truncate">
-            <span class="text-white small fw-semibold d-block text-truncate">Sweater Weather</span>
-            <span class="text-muted-pulse extra-small d-block text-truncate">The Neighbourhood</span>
-          </div>
-        </div>
-        <span class="text-muted-pulse extra-small ms-2">4:00</span>
-      </article>
-
-      <article class="d-flex align-items-center justify-content-between py-1 px-2 rounded queue-item">
-        <div class="d-flex align-items-center gap-2 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=100&q=80" class="rounded queue-thumb" alt="The Less I Know The Better">
-          <div class="text-truncate">
-            <span class="text-white small fw-semibold d-block text-truncate">The Less I Know The Better</span>
-            <span class="text-muted-pulse extra-small d-block text-truncate">Tame Impala</span>
-          </div>
-        </div>
-        <span class="text-muted-pulse extra-small ms-2">3:36</span>
-      </article>
-
-      <article class="d-flex align-items-center justify-content-between py-1 px-2 rounded queue-item">
-        <div class="d-flex align-items-center gap-2 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=100&q=80" class="rounded queue-thumb" alt="Heat Waves">
-          <div class="text-truncate">
-            <span class="text-white small fw-semibold d-block text-truncate">Heat Waves</span>
-            <span class="text-muted-pulse extra-small d-block text-truncate">Glass Animals</span>
-          </div>
-        </div>
-        <span class="text-muted-pulse extra-small ms-2">3:59</span>
-      </article>
-
-      <article class="d-flex align-items-center justify-content-between py-1 px-2 rounded queue-item">
-        <div class="d-flex align-items-center gap-2 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1520523839898-50712825e617?auto=format&fit=crop&w=100&q=80" class="rounded queue-thumb" alt="Espresso">
-          <div class="text-truncate">
-            <span class="text-white small fw-semibold d-block text-truncate">Espresso</span>
-            <span class="text-muted-pulse extra-small d-block text-truncate">Sabrina Carpenter</span>
-          </div>
-        </div>
-        <span class="text-muted-pulse extra-small ms-2">2:55</span>
-      </article>
-    </div>
-
-    <div class="text-center mt-2 mb-1">
-      <a href="#" class="text-muted-pulse text-decoration-none extra-small hover-white">Ver cola completa</a>
-    </div>
-  </section>
-
 </aside>
