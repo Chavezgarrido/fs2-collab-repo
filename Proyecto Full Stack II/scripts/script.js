@@ -65,7 +65,7 @@ function renderizarSaludoUsuario() {
     if (btnPerfil) btnPerfil.onclick = abrirVistaPerfil;
   } else {
     container.innerHTML = `
-      <a href="login.html" class="btn btn-outline-secondary text-white btn-sm rounded-0 px-3 extra-small fw-semibold">
+      <a href="./pages/login.html" class="btn btn-outline-secondary text-white btn-sm rounded-0 px-3 extra-small fw-semibold">
         <i class="bi bi-box-arrow-in-right me-1"></i> Entrar
       </a>
     `;
