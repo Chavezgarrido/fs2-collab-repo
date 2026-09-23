@@ -12,7 +12,64 @@
 </head>
 
 <body class="vh-100 bg-black p-0 overflow-hidden d-flex">
-  <div id="aside-container" class="h-100" style="width: 250px; flex-shrink: 0;"></div>
+  
+  <!-- ASIDE / BARRA LATERAL DIRECTA -->
+  <div id="aside-container" class="h-100" style="width: 250px; flex-shrink: 0;">
+    <aside class="w-100 h-100 border-end border-dark-subtle d-flex flex-column justify-content-between p-3 bg-pulse-sidebar overflow-hidden">
+      <div class="d-flex flex-column gap-3 overflow-y-auto pe-1">
+        <div class="d-flex align-items-center gap-2 mb-2">
+          <span class="badge rounded-0 p-2 d-flex align-items-center justify-content-center" style="background-color: var(--purple-accent); width: 32px; height: 32px;">
+            <i class="bi bi-activity text-white fs-6"></i>
+          </span>
+          <span class="fw-bold fs-5 text-white tracking-wide">Pulse</span>
+        </div>
+
+        <nav>
+          <ul class="nav flex-column gap-1">
+            <li><a href="#" class="nav-link nav-link-pulse active d-flex align-items-center gap-3"><i class="bi bi-house-door-fill fs-5"></i> Inicio</a></li>
+            <li><a href="#" class="nav-link nav-link-pulse d-flex align-items-center gap-3"><i class="bi bi-compass fs-5"></i> Explorar</a></li>
+            <li><a href="#" class="nav-link nav-link-pulse d-flex align-items-center gap-3"><i class="bi bi-broadcast fs-5"></i> Radio</a></li>
+            <li><a href="#" class="nav-link nav-link-pulse d-flex align-items-center gap-3"><i class="bi bi-collection-play fs-5"></i> Tu biblioteca</a></li>
+          </ul>
+        </nav>
+
+        <div class="mt-2">
+          <div class="d-flex justify-content-between align-items-center text-muted-pulse mb-2">
+            <span class="sidebar-heading">TU BIBLIOTECA</span>
+            <i class="bi bi-plus-lg fs-6 cursor-pointer"></i>
+          </div>
+          <ul class="list-unstyled d-flex flex-column gap-2 text-muted-pulse ps-1 mb-0">
+            <li class="d-flex align-items-center gap-3 sidebar-item"><i class="bi bi-heart"></i> Tus Me Gusta</li>
+            <li class="d-flex align-items-center gap-3 sidebar-item"><i class="bi bi-text-paragraph"></i> Playlists</li>
+            <li class="d-flex align-items-center gap-3 sidebar-item"><i class="bi bi-disc"></i> Álbumes</li>
+            <li class="d-flex align-items-center gap-3 sidebar-item"><i class="bi bi-person"></i> Artistas</li>
+            <li class="d-flex align-items-center gap-3 sidebar-item"><i class="bi bi-download"></i> Descargas</li>
+          </ul>
+        </div>
+
+        <div class="mt-2">
+          <div class="d-flex justify-content-between align-items-center text-muted-pulse mb-2">
+            <span class="sidebar-heading">PLAYLISTS</span>
+          </div>
+          <ul class="list-unstyled d-flex flex-column gap-3 ps-1 mb-0">
+            <li class="sidebar-playlist-item"><a href="#" class="text-white text-decoration-none fw-semibold d-block text-truncate">Classic Rock Legends</a><span class="text-muted-pulse extra-small d-block">85 canciones</span></li>
+            <li class="sidebar-playlist-item"><a href="#" class="text-white-50 text-decoration-none d-block text-truncate">Pop Hits Definitive</a><span class="text-muted-pulse extra-small d-block">110 canciones</span></li>
+            <li class="sidebar-playlist-item"><a href="#" class="text-white-50 text-decoration-none d-block text-truncate">Pop Rock Anthems</a><span class="text-muted-pulse extra-small d-block">64 canciones</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-3 border-top border-dark-subtle mt-auto">
+        <button class="btn btn-link text-decoration-none text-white p-0 d-flex align-items-center gap-2 sidebar-item w-100">
+          <span class="border border-secondary rounded-0 d-flex align-items-center justify-content-center" style="width: 26px; height: 26px;">
+            <i class="bi bi-plus text-white fs-6"></i>
+          </span>
+          <span class="fw-semibold" style="font-size: 0.8rem;">Nueva playlist</span>
+        </button>
+      </div>
+    </aside>
+  </div>
+
   <main class="flex-grow-1 h-100 p-4 overflow-y-auto">
     <header class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
       <div class="input-group" style="max-width: 460px; flex-grow: 1;">
@@ -25,13 +82,12 @@
       <div id="user-welcome-container" class="d-flex align-items-center gap-2">
       </div>
     </header>
+
     <section class="p-4 mb-4 rounded-0 position-relative overflow-hidden"
       style="background: linear-gradient(135deg, #1d122e 0%, #0c0816 100%); border: 1px solid #231c36;">
-      <span class="text-uppercase fw-bold extra-small text-muted-pulse mb-1 d-block" style="letter-spacing: 1px;">Álbum
-        Recomendado</span>
+      <span class="text-uppercase fw-bold extra-small text-muted-pulse mb-1 d-block" style="letter-spacing: 1px;">Álbum Recomendado</span>
       <h2 class="text-white fw-bold display-6 mb-1">Pop Rock Essentials</h2>
-      <p class="text-white-50 mb-3" style="max-width: 540px;">Riffs electrizantes, ganchos pop inolvidables y las bandas
-        que llenaron estadios.</p>
+      <p class="text-white-50 mb-3" style="max-width: 540px;">Riffs electrizantes, ganchos pop inolvidables y las bandas que llenaron estadios.</p>
       <div class="d-flex align-items-center gap-3">
         <button id="btn-hero-play" class="btn text-white fw-bold px-4 py-2 rounded-0 d-flex align-items-center gap-2"
           style="background-color: var(--purple-accent);">
@@ -39,6 +95,7 @@
         </button>
       </div>
     </section>
+
     <section class="mb-4">
       <div class="row row-cols-1 row-cols-md-3 g-2">
         <div class="col">
@@ -64,6 +121,7 @@
         </div>
       </div>
     </section>
+
     <section class="mb-5">
       <header class="d-flex justify-content-between align-items-center mb-3">
         <h5 class="text-white fw-bold mb-0">Tus géneros favoritos</h5>
@@ -107,6 +165,7 @@
         </div>
       </div>
     </section>
+
     <section class="mb-4">
       <header class="d-flex justify-content-between align-items-center mb-3">
         <h5 class="text-white fw-bold mb-0">Pistas disponibles</h5>
@@ -126,7 +185,82 @@
       </div>
     </section>
   </main>
-  <div id="player-test-container" class="h-100" style="width: 320px; flex-shrink: 0;"></div>
+
+  <!-- PLAYER DIRECTO -->
+  <div id="player-test-container" class="h-100" style="width: 320px; flex-shrink: 0;">
+    <aside id="player-aside" class="pulse-player-container">
+      <div class="pulse-mini-player cursor-pointer" id="mobile-expand-trigger">
+        <div class="pulse-mini-left" id="mini-track-info-area">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='%23231c36'><rect width='24' height='24' fill='%230e0b16'/><circle cx='12' cy='12' r='8' fill='%231a1528'/><circle cx='12' cy='12' r='3' fill='%230e0b16'/></svg>" id="mini-cover" alt="Sin reproducir">
+          <div class="pulse-mini-info">
+            <span class="pulse-mini-title" id="mini-title">No se está reproduciendo nada</span>
+            <span class="pulse-mini-artist" id="mini-artist">Elige una pista para comenzar</span>
+          </div>
+        </div>
+        
+        <div class="pulse-mini-controls">
+          <button class="pulse-btn-icon" id="btn-mini-favorite" type="button" aria-label="Favorito"><i class="bi bi-heart"></i></button>
+          <button class="pulse-btn-icon" id="btn-mini-play" type="button" aria-label="Reproducir"><i class="bi bi-play-fill"></i></button>
+        </div>
+
+        <div class="pulse-mini-progress-bar">
+          <div class="pulse-mini-progress-fill" id="mini-progress-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <div class="pulse-full-player position-relative" id="sp-full-player" style="padding-bottom: 70px;">
+        <div class="pulse-full-header">
+          <button class="pulse-btn-icon" id="btn-close-fullscreen" type="button" aria-label="Minimizar"><i class="bi bi-chevron-down fs-4"></i></button>
+          <div class="text-center text-truncate px-2">
+            <span class="pulse-tag">REPRODUCIENDO EN PULSE</span>
+            <span class="pulse-subtag d-block text-truncate" id="full-header-title">En espera</span>
+          </div>
+          <button class="pulse-btn-icon" type="button"><i class="bi bi-three-dots-vertical fs-5"></i></button>
+        </div>
+
+        <div class="pulse-full-cover-wrapper">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 24 24' fill='%23231c36'><rect width='24' height='24' fill='%230e0b16'/><circle cx='12' cy='12' r='9' fill='%231a1528'/><circle cx='12' cy='12' r='3' fill='%230e0b16'/><circle cx='12' cy='12' r='1' fill='%23b26bff'/></svg>" id="current-cover" alt="Sin reproducir">
+        </div>
+
+        <div class="pulse-full-info-row">
+          <div class="pulse-full-meta text-truncate">
+            <h4 class="pulse-full-title text-truncate mb-0" id="current-title">No hay música en reproducción</h4>
+            <span class="pulse-full-artist text-truncate" id="current-artist">Elige una canción para comenzar</span>
+          </div>
+          <button class="pulse-btn-icon" id="btn-favorite" type="button" aria-label="Favorito"><i class="bi bi-heart fs-4"></i></button>
+        </div>
+
+        <div class="pulse-full-timeline">
+          <input type="range" class="form-range player-range w-100" id="playback-bar" min="0" max="100" value="0">
+          <div class="d-flex justify-content-between text-muted-pulse extra-small mt-1">
+            <span id="time-current">0:00</span>
+            <span id="time-total">0:00</span>
+          </div>
+        </div>
+
+        <div class="pulse-full-controls">
+          <button class="pulse-btn-icon" id="btn-shuffle" type="button" aria-label="Aleatorio"><i class="bi bi-shuffle fs-5"></i></button>
+          <button class="pulse-btn-icon" id="btn-prev" type="button" aria-label="Anterior"><i class="bi bi-skip-start-fill fs-2"></i></button>
+          <button class="pulse-btn-play-big" id="btn-play-main" type="button" aria-label="Play / Pausa"><i class="bi bi-play-fill text-black"></i></button>
+          <button class="pulse-btn-icon" id="btn-next" type="button" aria-label="Siguiente"><i class="bi bi-skip-end-fill fs-2"></i></button>
+          <button class="pulse-btn-icon" id="btn-repeat" type="button" aria-label="Repetir"><i class="bi bi-repeat fs-5"></i></button>
+        </div>
+
+        <div class="pulse-full-volume-row">
+          <button class="pulse-btn-icon" id="btn-volume-toggle" type="button" aria-label="Silenciar"><i class="bi bi-volume-up-fill" id="volume-icon"></i></button>
+          <input type="range" class="form-range player-range flex-grow-1" id="volume-bar" min="0" max="100" value="70">
+        </div>
+
+        <section class="queue-section border-top border-dark-subtle pt-3 mt-3 d-none d-lg-block">
+          <span class="text-white fw-semibold extra-small d-block mb-2" style="letter-spacing: 0.5px;">SIGUIENTE EN COLA</span>
+          <div class="d-flex flex-column gap-1" id="queue-list-container">
+            <p class="text-muted-pulse extra-small py-2 text-center">Fila vacía</p>
+          </div>
+        </section>
+      </div>
+    </aside>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./scripts/player.js"></script>
   <script src="./scripts/script.js"></script>
